@@ -12,7 +12,7 @@
     "url": "https://github.com/sebhildebrandt/reveal.js-tagcloud-plugin.git"
   },
   "dependencies": {
-    "revealjs": "~3.1.0"
+    "reveal.js": "~4.1.0"
   },
   "license": "MIT"
 }
