@@ -1,10 +1,17 @@
+window.RevealTagCloud = window.RevealTagCloud || {
+    id: 'RevealTagCloud',
+    init: function(deck) {
+        initTagCloud(deck);
+    }
+};
+
 // tagcloud
-(function(){
-    [].forEach.call( document.querySelectorAll('[tagcloud]'), function(cloud) {
+const initTagCloud = function (Reveal){
+    [].forEach.call( document.querySelectorAll('tagcloud'), function(cloud) {
         // Find all tagcloud items with a weight defined and add them to this array
         var weights = [].slice.call(cloud.querySelectorAll('[tagcloud-weight]'))
-                        .map(function(el){ return el.getAttribute('tagcloud-weight') })
-                        .sort(function(a, b){ return b-a }); // Sort descending
+            .map(function(el){ return el.getAttribute('tagcloud-weight') })
+            .sort(function(a, b){ return b-a }); // Sort descending
 
         var upperBound = weights[0];
         var lowerBound = weights[ weights.length - 1 ];
@@ -23,9 +30,14 @@
             for(index = 0; index < slideNotes.length; ++index) {
                 text = text.replace(slideNotes[index].textContent, '');
             }
+
+            // remove <p> and </p> tags
+            text = text.replace(/<p>/g, '');
+            text = text.replace(/<\/p>/g, '');
+
             //@see http://stackoverflow.com/questions/24512636/split-words-shuffle-jumble-letters
             var a = text.split(/\n/),
-            n = a.length;
+                n = a.length;
 
             if (cloud.hasAttribute('shuffle')) {
                 //shuffle order
@@ -40,10 +52,10 @@
             return a.filter(function(item) {
                 return item.trim() !== '';
             })
-            .map(function(item) {
-            return ( item.indexOf('span') === -1 ) ? '<span>' + item.trim() + '</span> ' : item.trim();
-            })
-            .join("");
+                .map(function(item) {
+                    return ( item.indexOf('span') === -1 ) ? '<span>' + item.trim() + '</span> ' : item.trim();
+                })
+                .join("");
 
         }
 
@@ -121,4 +133,4 @@
             }
         });
     });
-})();
+};
