@@ -36,34 +36,37 @@ After copying the 'tagcloud' directory into the reveal.js 'plugin' directors, yo
 
 ```
 
-After that, in the slides-section of your HTML, just create a section for your next slide. Add a `tagcloud` attribute to your section. Insite the section each item gets a seperate line. In your presentation place e.g. the following code:
+After that, in the slides-section of your HTML, just create a section for your next slide. Add a `tagcloud` element to your slide. Inside the `tagcloud` each item gets a seperate line. In your presentation place e.g. the following code:
 
 ```html
-<section tagcloud>
-    Twitter Bootstrap
-    jQuery
-    less
-    GruntJS
-    JSHint
-    JSLint
-    markdown
-    sass
-    jade
-    coffeescript
-    codekit
-    livereload
-    web-build
-    jQuery UI
-    mustache
-    emmet.io
-    bower
-    browserstack
-    npm
-    RequireJS
-    socket.io
-    jQuery Mobile
-    node.js
-    Jasmine
+<section>
+    <h2>Title</h2>
+    <tagcloud>
+        Twitter Bootstrap
+        jQuery
+        less
+        GruntJS
+        JSHint
+        JSLint
+        markdown
+        sass
+        jade
+        coffeescript
+        codekit
+        livereload
+        web-build
+        jQuery UI
+        mustache
+        emmet.io
+        bower
+        browserstack
+        npm
+        RequireJS
+        socket.io
+        jQuery Mobile
+        node.js
+        Jasmine
+    </tagcloud>
  </section>
 ```
 
@@ -73,33 +76,33 @@ For a black&white tag cloud you can do the same, by just adding a `bw` attribute
 
 
 ```html
-<section tagcloud bw>
+<tagcloud bw>
     Twitter Bootstrap
     jQuery
     less
     ...
     ...
     Jasmine
- </section>
+ </tagcloud>
 ```
 
 If you want your items to appear a little larger, add the `large` attribute:
 
 ```html
-<section tagcloud large>
+<tagcloud tagcloud large>
     Twitter Bootstrap
     jQuery
     less
     ...
     ...
     Jasmine
-</section>
+</tagcloud>
 ```
 
 If you want to have full controll on the size of each tag, you can do the following:
 
 ```html
-<section tagcloud>
+<tagcloud>
     <span tagcloud-weight="10">Twitter Bootstrap</span>
     <span tagcloud-weight="3">jQuery</span>
     <span tagcloud-weight="20">less</span>
@@ -109,31 +112,31 @@ If you want to have full controll on the size of each tag, you can do the follow
     <span tagcloud-weight="20">Jasmins</span>
     <span tagcloud-weight="40">Mocha</span>
     <span>Markdown</span>
-</section>
+</tagcloud>
 ```
 
 If you want to shuffle the tag elements, just add a `shuffle` attribute to the section - thanks to [cprior](https://github.com/cprior):
 
 ```html
-<section tagcloud large shuffle>
+<tagcloud large shuffle>
     Twitter Bootstrap
     jQuery
     less
     ...
     ...
     Jasmine
-</section>
+</tagcloud>
 ```
 
 And here is, how you can add a link for a tag to a specific slide of your presentation - thanks to [cprior](https://github.com/cprior):
 
 ```html
-<section tagcloud large shuffle>
+<tagcloud large shuffle>
     <span tagcloud-link="42">Twitter Bootstrap</span>
     <span tagcloud-link="51">jQuery</span>
     ...
     ...
-</section>
+</tagcloud>
 ```
 
 ## CSS
